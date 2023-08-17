@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import styled from "@emotion/styled";
-// import { todoState, getIsAllCompleted } from "../../stores/todo";
-// import { useRecoilState, useRecoilValue } from "recoil";
+import { todoAtom } from "../../stores/todo";
+import { useAtom } from "jotai";
 
 const TodoFormStyled = styled.div`
     display: flex;
@@ -45,8 +45,11 @@ const TodoInputStyled = styled.input`
 `;
 
 function TodoForm() {
-    // const [todo, setTodo] = useRecoilState(todoState);
-    // const isAllCompleted = useRecoilValue(getIsAllCompleted);
+    const [todo, setTodo] = useAtom(todoAtom);
+    const isAllCompleted = useMemo(
+        () => (todo.length ? todo.every((item) => item.completed) : false),
+        [todo],
+    );
 
     const [id, setId] = useState(0);
 
@@ -58,14 +61,14 @@ function TodoForm() {
             value = value.trim();
 
             if (value.length) {
-                // setTodo((oldTodo) => [
-                //     ...oldTodo,
-                //     {
-                //         id,
-                //         text: value,
-                //         completed: false,
-                //     },
-                // ]);
+                setTodo((oldTodo) => [
+                    ...oldTodo,
+                    {
+                        id,
+                        text: value,
+                        completed: false,
+                    },
+                ]);
 
                 target.value = "";
                 setId(id + 1);
@@ -75,17 +78,17 @@ function TodoForm() {
 
     // Toggle All Check
     function handleToggleAllCheck() {
-        // setTodo((oldTodo) =>
-        //     oldTodo.map((item) => ({ ...item, completed: !isAllCompleted })),
-        // );
+        setTodo((oldTodo) =>
+            oldTodo.map((item) => ({ ...item, completed: !isAllCompleted })),
+        );
     }
 
     return (
         <TodoFormStyled>
             <AllCheckButtonStyled
-                // className={`${todo.length ? "show" : ""} ${
-                //     isAllCompleted ? "active" : ""
-                // }`}
+                className={`${todo.length ? "show" : ""} ${
+                    isAllCompleted ? "active" : ""
+                }`}
                 onClick={handleToggleAllCheck}
             >
                 ❯
