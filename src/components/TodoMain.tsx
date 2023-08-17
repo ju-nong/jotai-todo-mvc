@@ -1,5 +1,8 @@
 import styled from "@emotion/styled";
-// import { TodoForm, TodoContainer } from "./todo";
+import {
+    TodoForm,
+    // TodoContainer
+} from "./todo";
 // import { todoState } from "../stores/todo";
 // import { useRecoilValue } from "recoil";
 
@@ -17,8 +20,8 @@ function TodoMain() {
 
     return (
         <TodoMainStyled>
-            {/* <TodoForm />
-            {todo.length ? <TodoContainer /> : null} */}
+            <TodoForm />
+            {/* {todo.length ? <TodoContainer /> : null} */}
         </TodoMainStyled>
     );
 }
