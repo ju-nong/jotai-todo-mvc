@@ -1,10 +1,10 @@
-// import { TodoList, TodoNavigation } from ".";
+import { TodoNavigation } from ".";
 
 function TodoContainer() {
     return (
         <section>
-            {/* <TodoList />
-            <TodoNavigation /> */}
+            {/* <TodoList /> */}
+            <TodoNavigation />
         </section>
     );
 }
