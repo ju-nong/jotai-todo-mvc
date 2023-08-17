@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
-import {
-    TodoForm,
-    // TodoContainer
-} from "./todo";
+import { TodoForm, TodoContainer } from "./todo";
+import { todoAtom } from "../stores/todo";
+import { useAtomValue } from "jotai";
 // import { todoState } from "../stores/todo";
 // import { useRecoilValue } from "recoil";
 
@@ -16,12 +15,12 @@ const TodoMainStyled = styled.main`
 `;
 
 function TodoMain() {
-    // const todo = useRecoilValue(todoState);
+    const todo = useAtomValue(todoAtom);
 
     return (
         <TodoMainStyled>
             <TodoForm />
-            {/* {todo.length ? <TodoContainer /> : null} */}
+            {todo.length ? <TodoContainer /> : null}
         </TodoMainStyled>
     );
 }
