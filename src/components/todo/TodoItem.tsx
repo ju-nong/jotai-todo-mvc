@@ -2,9 +2,7 @@ import React, { useState, useMemo, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Todo, todoAtom } from "../../stores/todo";
 import { useSetAtom } from "jotai";
-// import { Todo, todoState } from "../../stores/todo";
-// import { useOutside } from "../../utils";
-// import { useSetRecoilState } from "recoil";
+import { useOutside } from "../../utils";
 
 interface TodoItemProps {
     todo: Todo;
@@ -105,7 +103,7 @@ function TodoItem({ todo }: TodoItemProps) {
         }
     }, [isEdit]);
 
-    // useOutside($input, () => setIsEdit(false));
+    useOutside($input, () => setIsEdit(false));
 
     const isCompleted = useMemo(
         () => (isEdit ? "hidden" : todo.completed ? "completed" : ""),
