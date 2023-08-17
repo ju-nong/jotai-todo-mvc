@@ -1,9 +1,10 @@
-import { TodoHeader, TodoFooter } from "./components";
+import { TodoHeader, TodoMain, TodoFooter } from "./components";
 
 function App() {
     return (
         <>
             <TodoHeader />
+            <TodoMain />
             <TodoFooter />
         </>
     );
