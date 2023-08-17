@@ -1,6 +1,6 @@
 import { Filter } from "./type";
 import { atom } from "jotai";
 
-const filterState = atom<Filter>("all");
+const filterAtom = atom<Filter>("all");
 
-export { filterState };
+export { filterAtom };

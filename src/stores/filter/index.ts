@@ -1,5 +1,5 @@
 import { Filter } from "./type";
-import { filterState } from "./store";
+import { filterAtom } from "./store";
 
-export { filterState };
+export { filterAtom };
 export type { Filter };
