@@ -1,9 +1,9 @@
-import { TodoNavigation } from ".";
+import { TodoList, TodoNavigation } from ".";
 
 function TodoContainer() {
     return (
         <section>
-            {/* <TodoList /> */}
+            <TodoList />
             <TodoNavigation />
         </section>
     );
